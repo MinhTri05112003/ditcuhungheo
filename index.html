@@ -1,54 +1,27 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Xác nhận</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>QR → Trang & Trò vui</title>
   <style>
-    :root{--bg:#0b1220;--fg:#e5e7eb;--muted:#94a3b8;--brand:#22c55e;--danger:#ef4444}
-    *{box-sizing:border-box} body{margin:0;min-height:100svh;background:var(--bg);color:var(--fg);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;display:grid;place-items:center}
-    .card{max-width:720px;width:100%;margin:24px;padding:28px;border-radius:18px;
-      border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
-    h1{margin:0 0 12px;font-size:clamp(26px,4vw,40px);text-align:center}
-    p.lead{margin:0 0 18px;text-align:center;color:var(--muted)}
-    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-    .btn{padding:12px 18px;border:0;border-radius:999px;cursor:pointer;font-weight:600}
-    .btn.ok{background:var(--brand);color:#0b1220}
-    .btn.no{background:transparent;color:var(--fg);outline:1px solid rgba(148,163,184,.35)}
-    .msg{margin-top:14px;text-align:center;min-height:1.4em}
-    .ok-text{color:var(--brand)} .no-text{color:var(--danger)}
+    body{margin:0;min-height:100svh;display:grid;place-items:center;
+      background:#0b1220;color:#e5e7eb;font:16px/1.6 system-ui,Arial}
+    .card{max-width:720px;width:100%;margin:24px;padding:24px;border-radius:16px;
+      border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.03)}
+    h1{margin:0 0 10px}
+    a.button{display:inline-block;margin:8px 8px 0 0;padding:12px 16px;border-radius:999px;
+      background:#06b6d4;color:#001; font-weight:700; text-decoration:none}
+    .ghost{background:transparent;outline:1px solid rgba(148,163,184,.35);color:#e5e7eb}
+    p.muted{color:#94a3b8}
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>ĐỂ HÙNG HEO SỬ LÍ</h1>
-    <p class="lead">Vui lòng chọn một phương án bên dưới.</p>
-    <div class="actions" role="group" aria-label="Lựa chọn">
-      <button id="agree" class="btn ok" autofocus>Đồng ý</button>
-      <button id="disagree" class="btn no">Không đồng ý</button>
-    </div>
-    <p id="msg" class="msg" aria-live="polite"></p>
+  <main class="card">
+    <h1>Tools</h1>
+    <p class="muted">• Quét QR để mở URL • Nhập tên để tạo câu vui (an toàn)</p>
+    <a class="button" href="qr.html">Quét QR</a>
+    <a class="button ghost" href="roast.html">Trò vui theo tên</a>
   </main>
-
-  <script>
-    const agree = document.getElementById('agree');
-    const disagree = document.getElementById('disagree');
-    const msg = document.getElementById('msg');
-
-    agree.addEventListener('click', () => {
-      msg.className = 'msg ok-text';
-      msg.textContent = 'Bạn đã đồng ý. Đang chuyển cho Hùng Heo xử lí ✔️';
-      // Nếu muốn chuyển trang khi đồng ý, bỏ comment dòng dưới:
-      // window.location.href = 'https://ví-dụ.com/duong-dan';
-    });
-
-    disagree.addEventListener('click', () => {
-      msg.className = 'msg no-text';
-      msg.textContent = 'Bạn đã không đồng ý. Đã ghi nhận ❌';
-      // Hoặc chuyển tới trang khác:
-      // window.location.href = '/khong-dong-y.html';
-    });
-  </script>
 </body>
 </html>
